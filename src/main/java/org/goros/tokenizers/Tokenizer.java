@@ -1,4 +1,4 @@
-package org.goros;
+package org.goros.tokenizers;
 
 import java.util.List;
 

@@ -1,30 +1,35 @@
 package org.goros;
 
-import org.goros.tokenizers.TokenizerFactory;
-
+import org.goros.database.Database;
+import org.goros.models.ngram.BasicNGramModel;
+import org.goros.models.ngram.NGramDataHandler;
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
+
 
 public class Main {
     public static void main(String[] args) {
-        try {
-            File javaFile = new File("C:\\Users\\andre\\Desktop\\Andre Uni\\Tercero\\BD\\kmlkf.java");
-            String javaCode = new String(Files.readAllBytes(Paths.get(javaFile.getPath())));
-            TokenizerFactory factory = new TokenizerFactory();
-            Tokenizer javaTokenizer = factory.getTokenizer(javaFile);
-            List<String> javaTokens = javaTokenizer.tokenize(javaCode);
-            System.out.println("Java Tokens: " + javaTokens);
+        int n = 2;
 
-            File pythonFile = new File("C:\\Users\\andre\\Desktop\\Andre Uni\\Cuarto\\PLN\\Ejercicios_PLN.py");
-            String pythonCode = new String(Files.readAllBytes(Paths.get(pythonFile.getPath())));
-            Tokenizer pythonTokenizer = factory.getTokenizer(pythonFile);
-            List<String> pythonTokens = pythonTokenizer.tokenize(pythonCode);
-            System.out.println("Python Tokens: " + pythonTokens);
-        } catch (IOException e) {
-            e.printStackTrace();
+        NGramDataHandler dataHandler = new NGramDataHandler(n);
+
+        BasicNGramModel nGramModel = new BasicNGramModel(dataHandler);
+
+        Database database = new Database(dataHandler);
+
+        database.addFile("JavaTest", new File("C:\\Users\\cynth\\Downloads\\kmlkf.java"));
+        database.addFile("PythonTest", new File("C:\\Users\\cynth\\Downloads\\Ejercicios_PLN.py"));
+
+        database.processFiles();
+
+        File retrievedFile = database.getFile("JavaTest");
+        if (retrievedFile != null) {
+            System.out.println("Archivo recuperado: " + retrievedFile.getAbsolutePath());
+        } else {
+            System.out.println("Archivo no encontrado.");
         }
+
+        List<String> suggestions = nGramModel.suggestNextTokens("public");
+        System.out.println("Sugerencias: " + suggestions);
     }
 }

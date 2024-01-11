@@ -1,7 +1,5 @@
 package org.goros.tokenizers;
 
-import org.goros.Tokenizer;
-
 import java.util.Collections;
 import java.util.List;
 

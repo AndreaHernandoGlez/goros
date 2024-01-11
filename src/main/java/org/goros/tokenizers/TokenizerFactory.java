@@ -1,7 +1,5 @@
 package org.goros.tokenizers;
 
-import org.goros.Tokenizer;
-
 import java.io.File;
 
 public class TokenizerFactory {
