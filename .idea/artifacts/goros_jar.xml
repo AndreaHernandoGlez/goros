@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="goros:jar">
+  <artifact type="jar" build-on-make="true" name="goros:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/goros_jar</output-path>
     <root id="archive" name="goros.jar">
       <element id="module-output" name="goros" />
