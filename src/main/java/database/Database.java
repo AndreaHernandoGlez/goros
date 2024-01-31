@@ -1,8 +1,8 @@
-package org.goros.database;
+package database;
 
-import org.goros.tokenizers.Tokenizer;
-import org.goros.models.ngram.TokenProcessor;
-import org.goros.tokenizers.TokenizerFactory;
+import tokenizers.Tokenizer;
+import models.ngram.TokenProcessor;
+import tokenizers.TokenizerFactory;
 
 import java.io.File;
 import java.io.IOException;

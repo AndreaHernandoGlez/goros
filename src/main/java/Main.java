@@ -1,8 +1,6 @@
-package org.goros;
-
-import org.goros.database.Database;
-import org.goros.models.ngram.BasicNGramModel;
-import org.goros.models.ngram.NGramDataHandler;
+import database.Database;
+import models.ngram.BasicNGramModel;
+import models.ngram.NGramDataHandler;
 import java.io.File;
 import java.util.List;
 
@@ -17,8 +15,8 @@ public class Main {
 
         Database database = new Database(dataHandler);
 
-        database.addFile("JavaTest", new File("C:\\Users\\cynth\\Downloads\\kmlkf.java"));
-        database.addFile("PythonTest", new File("C:\\Users\\cynth\\Downloads\\Ejercicios_PLN.py"));
+        database.addFile("JavaTest", new File("C:\\Users\\andre\\Desktop\\Andre Uni\\Tercero\\BD\\kmlkf.java"));
+        database.addFile("PythonTest", new File("C:\\Users\\andre\\Desktop\\Andre Uni\\Cuarto\\PLN\\Ejercicios_PLN.py"));
 
         database.processFiles();
 

@@ -1,4 +1,4 @@
-package org.goros.models.ngram;
+package models.ngram;
 
 import java.util.Collections;
 import java.util.List;
